@@ -30,7 +30,7 @@ However, it still has a very simple set of goals.
    o prevents to much logic going in templates
 - Easy to write document'able code
    o By using object vars for a template rather than 'assign', you
-     can use phpdoc comments to list what variable you use.
+     can use PHPDoc comments to list what variable you use.
 - Editable in WYSIWYG editors
    o you can create full featured templates, that doesnt get broken every time you edit with
      Dreamweaver(tm) or Mozzila editor
@@ -79,7 +79,7 @@ zakodowane w URL-ach - wiêc mo¿e modyfikowaæ szablony w Mozilli itp.
 Inne filtry to:
  - RtfSimpletags - do tworzenia dokumentów RTF dla Worda,
  - BodyOnly - wycinaj±cy nag³ówek i stopkê z szablonu,
- - Php - wycinaj±cy kod php z szablonu,
+ - Php - wycinaj±cy kod PHP z szablonu,
  - Email - do przetwarzania szablonów e-mail.
 
 Ta klasa ma w PEAR status: %{_status}.
