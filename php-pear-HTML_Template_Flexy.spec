@@ -8,7 +8,7 @@ Summary:	%{_pearname} - a flexible caching template engine based on SimpleTempla
 Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -93,7 +93,7 @@ cd %{_pearname}-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/{Compiler/{Flexy,Standard,Regex},Token}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/{Compiler/{Flexy,Standard,Regex},Element,Plugin,Token}
 	
 install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
 install %{_pearname}-%{version}/Flexy/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy
@@ -101,6 +101,8 @@ install %{_pearname}-%{version}/Flexy/Compiler/*.php $RPM_BUILD_ROOT%{php_pear_d
 install %{_pearname}-%{version}/Flexy/Compiler/Flexy/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Flexy
 install %{_pearname}-%{version}/Flexy/Compiler/Standard/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard
 install %{_pearname}-%{version}/Flexy/Compiler/Regex/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex
+install %{_pearname}-%{version}/Flexy/Element/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Element
+install %{_pearname}-%{version}/Flexy/Plugin/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Plugin
 install %{_pearname}-%{version}/Flexy/Token/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token
 
 %clean
