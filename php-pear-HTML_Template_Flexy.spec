@@ -7,11 +7,12 @@ Summary:	%{_pearname} - A Flexible Caching Template Engine Based on SimpleTempla
 Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	0.5
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	418c16ab342d39457607c9c0ecbd348b
+Patch0:		%{name}-case_fix.patch
 URL:		http://pear.php.net/package/%{_pearname}/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
@@ -49,14 +50,18 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
+cd %{_pearname}-%{version}
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/{Compiler,Token}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/{Compiler/{Standard,Regex},Token}
 
 install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
 install %{_pearname}-%{version}/Flexy/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy
 install %{_pearname}-%{version}/Flexy/Compiler/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler
+install %{_pearname}-%{version}/Flexy/Compiler/Standard/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard
+install %{_pearname}-%{version}/Flexy/Compiler/Regex/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex
 install %{_pearname}-%{version}/Flexy/Token/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token
 
 %clean
@@ -66,9 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{_pearname}-%{version}/Flexy/example.ini
 %dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler
+%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard
+%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex
 %dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token
 %{php_pear_dir}/%{_class}/%{_subclass}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/*.php
+%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard/*.php
+%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token/*.php
