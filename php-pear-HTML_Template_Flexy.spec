@@ -3,10 +3,10 @@
 %define		_subclass	Template
 %define		_pearname	%{_class}_%{_subclass}_Flexy
 Summary:	%{_pearname} - A Flexible Caching Template Engine Based on SimpleTemplate
-Summary(pl):	%{_pearname}
+Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	0.1
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -28,6 +28,19 @@ template in mozilla etc. Other filters include:
  - BodyOnly - to strip header and footer from a template,
  - Php - to strip php code from template,
  - Email - For parsing email templates.
+
+%description -l pl
+Flexy Template to silnik szablonów do konwertera kodu PHP, bazowany na
+Simple Template i podobny do Smarty. Powinien byæ bardzo szybki, jest
+³atwy w rozszerzaniu, rozwijaniu i u¿ywaniu dowolnej sk³adni
+szablonów. Domy¶lny filtr (SimpleTags) zawiera: zmienne, pêtle
+foreach, warunki, wywo³ania metod, w³±czanie kodu, obs³uguje znaczniki
+zakodowane w URL-ach - wiêc mo¿e modyfikowaæ szablony w Mozilli itp.
+Inne filtry to:
+ - RtfSimpletags - do tworzenia dokumentów RTF dla Worda,
+ - BodyOnly - wycinaj±cy nag³ówek i stopkê z szablonu,
+ - Php - wycinaj±cy kod php z szablonu,
+ - Email - do przetwarzania szablonów e-mail.
 
 %prep
 %setup -q -c
