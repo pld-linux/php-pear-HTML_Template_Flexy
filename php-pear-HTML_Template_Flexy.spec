@@ -22,7 +22,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-HTML_Template_Flexy started it's life as a simplification of
+HTML_Template_Flexy started its life as a simplification of
 HTML_Template_Xipe, however in version 0.2, it became one of the first
 template engine to use a real Lexer, rather than regexes, making it
 possible to do things like ASP.net or Cold Fusion tags. However, it
@@ -55,30 +55,9 @@ still has a very simple set of goals.
 - Full dynamic element support (like ASP.NET), so you can pick
 	  elements to replace at runtime
 
-Features:
-- {variable} to echo $object->variable
-- {method()} to echo $object->method();
-- {foreach:var,key,value} to PHP foreach loops
-- tag attributes FLEXY:FOREACH, FLEXY:IF for looping and conditional
-  HTML inclusion
-- {if:variable} to PHP If statement
-- {if:method()} to PHP If statement
-- {else:} and {end:} to close or alternate If statements
-- FORM to HTML_Template_Flexy_Element's
-- replacement of INPUT, TEXTAREA and SELECT tags with
-  HTML_Template_Flexy_Element code use FLEXY:IGNORE (inherited) and
-  FLEXY:IGNOREONLY (single) to prevent replacements
-- FLEXY:START/FLEXY:STARTCHILDREN tags to define where template
-  starts/finishes
-- support for urlencoded braces {} in HTML attributes.
-- documentation in the pear manual
-
-- examples at
-  http://cvs.php.net/cvs.php/pear/HTML_Template_Flexy/tests/
-
 The long term plan for Flexy is to be integrated as a backend for the
-Future Template Package (A BC wrapper will be made available - as I
-need to use it too!)
+Future Template Package (A BC wrapper will be made available - as the
+author needs to use it too!)
 
 In PEAR status of this package is: %{_status}.
 
