@@ -21,16 +21,51 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Flexy Template is a template engine to php code convertor, based on
-Simple Template, and similar to Smarty. It should be very fast, and is
-easy to extend to develop or use any template syntax you like. Default
-filter (SimpleTags) includes: variables, foreach loops, conditionals,
-method calls, includes, handles urlencoded tags - so you can edit the
-template in mozilla etc. Other filters include:
- - RtfSimpletags - to make RTF/Word documents,
- - BodyOnly - to strip header and footer from a template,
- - Php - to strip php code from template,
- - Email - For parsing email templates.
+HTML_Template_Flexy started it's life as a simplification of HTML_Template_Xipe,
+however in Version 0.2, It became one of the first template engine to use a real Lexer,
+rather than regex'es, making it possible to do things like ASP.net or Cold Fusion tags.
+However, it still has a very simple set of goals.
+- Very Simple API,
+   o easy to learn...
+   o prevents to much logic going in templates
+- Easy to write document'able code
+   o By using object vars for a template rather than 'assign', you
+     can use phpdoc comments to list what variable you use.
+- Editable in WYSIWYG editors
+   o you can create full featured templates, that doesnt get broken every time you edit with
+     Dreamweaver(tm) or Mozzila editor
+   o Uses namespaced attributes to add looping/conditionals
+- Extremely Fast,
+   o runtime is at least 4 time smaller than most other template engines (eg. Smarty)
+   o uses compiled templates, as a result it is many times faster on blocks and loops than
+     than Regex templates (eg. IT/phplib)
+- Safer (for cross site scripting attacks)
+   o All variables default to be output as HTML escaped (overridden with the :h modifier)
+- Multilanguage support
+   o Parses strings out of template, so you can build translation tools
+   o Compiles language specific templates (so translation is only done once, not on every request)
+- Full dynamic element support (like ASP.NET), so you can pick elements to replace at runtime
+
+Features:
+- {variable} to echo $object->variable
+- {method()} to echo $object->method();
+- {foreach:var,key,value} to PHP foreach loops
+- tag attributes FLEXY:FOREACH, FLEXY:IF for looping and conditional HTML inclusion
+- {if:variable} to PHP If statement
+- {if:method()} to PHP If statement
+- {else:} and {end:} to close or alternate If statements
+- FORM to HTML_Template_Flexy_Element's
+- replacement of INPUT, TEXTAREA and SELECT tags with HTML_Template_Flexy_Element code
+  use FLEXY:IGNORE (inherited) and FLEXY:IGNOREONLY (single) to prevent replacements
+- FLEXY:START/FLEXY:STARTCHILDREN tags to define where template starts/finishes
+- support for urlencoded braces {} in HTML attributes.
+- documentation in the pear manual
+
+- examples at http://cvs.php.net/cvs.php/pear/HTML_Template_Flexy/tests/
+
+The long term plan for Flexy is to be integrated as a backend for the Future
+Template Package (A BC wrapper will be made available - as I need to use it
+too!)
 
 In PEAR status of this package is: %{_status}.
 
@@ -72,13 +107,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc %{_pearname}-%{version}/{Flexy/example.ini,tests}
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token
-%{php_pear_dir}/%{_class}/%{_subclass}/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token/*.php
+%{php_pear_dir}/%{_class}/%{_subclass}/Flexy
+%{php_pear_dir}/%{_class}/%{_subclass}/Flexy.php
