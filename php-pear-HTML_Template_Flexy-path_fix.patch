@@ -1,0 +1,11 @@
+--- ./Flexy/Compiler/Regex/RtfSimpleTags.php	2004-12-04 22:26:11.425337616 +0100
++++ ./Flexy/Compiler/Regex/RtfSimpleTags.php	2004-12-04 22:27:06.051033248 +0100
+@@ -31,7 +31,7 @@
+ */ 
+  
+ 
+-require_once "HTML/Template/Flexy/Filter/SimpleTags.php";
++require_once "HTML/Template/Flexy/Compiler/Regex/SimpleTags.php";
+ 
+ class HTML_Template_Flexy_Compiler_Regex_RtfSimpleTags extends HTML_Template_Flexy_Compiler_Regex_SimpleTags 
+ {
