@@ -1,0 +1,18 @@
+--- ./Flexy/Compiler/Regex/RtfSimpleTags.php.org	Fri Aug  1 11:46:00 2003
++++ ./Flexy/Compiler/Regex/RtfSimpleTags.php	Wed Sep 10 12:58:33 2003
+@@ -33,7 +33,7 @@
+ 
+ require_once "HTML/Template/Flexy/Filter/SimpleTags.php";
+ 
+-class HTML_Template_Flexy_Compiler_Regex_RtfSimpleTags extends HTML_Template_Flexy_Compiler_Regex_simpletags 
++class HTML_Template_Flexy_Compiler_Regex_RtfSimpleTags extends HTML_Template_Flexy_Compiler_Regex_SimpleTags 
+ {
+     /*
+     *   @var    string   $start    the start tag for the template (escaped for regex)
+@@ -47,4 +47,4 @@
+     
+ }
+ 
+-?>
+\ No newline at end of file
++?>
