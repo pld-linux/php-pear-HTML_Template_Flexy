@@ -26,24 +26,24 @@ however in Version 0.2, It became one of the first template engine to use a real
 rather than regex'es, making it possible to do things like ASP.net or Cold Fusion tags.
 However, it still has a very simple set of goals.
 - Very Simple API,
-   o easy to learn...
-   o prevents to much logic going in templates
+	- easy to learn...
+	- prevents to much logic going in templates
 - Easy to write document'able code
-   o By using object vars for a template rather than 'assign', you
-     can use PHPDoc comments to list what variable you use.
+	- By using object vars for a template rather than 'assign', you
+	  can use PHPDoc comments to list what variable you use.
 - Editable in WYSIWYG editors
-   o you can create full featured templates, that doesnt get broken every time you edit with
-     Dreamweaver(tm) or Mozzila editor
-   o Uses namespaced attributes to add looping/conditionals
+	- you can create full featured templates, that doesnt get broken every time you edit with
+	  Dreamweaver(tm) or Mozzila editor
+	- Uses namespaced attributes to add looping/conditionals
 - Extremely Fast,
-   o runtime is at least 4 time smaller than most other template engines (eg. Smarty)
-   o uses compiled templates, as a result it is many times faster on blocks and loops than
-     than Regex templates (eg. IT/phplib)
+	- runtime is at least 4 time smaller than most other template engines (eg. Smarty)
+	- uses compiled templates, as a result it is many times faster on blocks and loops than
+	  than Regex templates (eg. IT/phplib)
 - Safer (for cross site scripting attacks)
-   o All variables default to be output as HTML escaped (overridden with the :h modifier)
+	- All variables default to be output as HTML escaped (overridden with the :h modifier)
 - Multilanguage support
-   o Parses strings out of template, so you can build translation tools
-   o Compiles language specific templates (so translation is only done once, not on every request)
+	- Parses strings out of template, so you can build translation tools
+	- Compiles language specific templates (so translation is only done once, not on every request)
 - Full dynamic element support (like ASP.NET), so you can pick elements to replace at runtime
 
 Features:
@@ -77,10 +77,10 @@ szablonów. Domy¶lny filtr (SimpleTags) zawiera: zmienne, pêtle
 foreach, warunki, wywo³ania metod, w³±czanie kodu, obs³uguje znaczniki
 zakodowane w URL-ach - wiêc mo¿e modyfikowaæ szablony w Mozilli itp.
 Inne filtry to:
- - RtfSimpletags - do tworzenia dokumentów RTF dla Worda,
- - BodyOnly - wycinaj±cy nag³ówek i stopkê z szablonu,
- - Php - wycinaj±cy kod PHP z szablonu,
- - Email - do przetwarzania szablonów e-mail.
+- RtfSimpletags - do tworzenia dokumentów RTF dla Worda,
+- BodyOnly - wycinaj±cy nag³ówek i stopkê z szablonu,
+- Php - wycinaj±cy kod PHP z szablonu,
+- Email - do przetwarzania szablonów e-mail.
 
 Ta klasa ma w PEAR status: %{_status}.
 
