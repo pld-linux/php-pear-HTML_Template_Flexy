@@ -4,7 +4,7 @@
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}_Flexy
 
-Summary:	%{_pearname} - A Flexible Caching Template Engine Based on SimpleTemplate
+Summary:	%{_pearname} - a flexible caching template engine based on SimpleTemplate
 Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	0.9.2
@@ -21,11 +21,11 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Flexy Template is a Template Engine to php code convertor, based on
+Flexy Template is a template engine to php code convertor, based on
 Simple Template, and similar to Smarty. It should be very fast, and is
 easy to extend to develop or use any template syntax you like. Default
 filter (SimpleTags) includes: variables, foreach loops, conditionals,
-method calls, includes, Handles urlencoded tags - so you can edit the
+method calls, includes, handles urlencoded tags - so you can edit the
 template in mozilla etc. Other filters include:
  - RtfSimpletags - to make RTF/Word documents,
  - BodyOnly - to strip header and footer from a template,
@@ -35,7 +35,7 @@ template in mozilla etc. Other filters include:
 In PEAR status of this package is: %{_status}.
 
 %description -l pl
-Flexy Template to silnik szablonów do konwertera kodu PHP, bazowany na
+Flexy Template to silnik szablonów do konwertera kodu PHP, oparty na
 Simple Template i podobny do Smarty. Powinien byæ bardzo szybki, jest
 ³atwy w rozszerzaniu, rozwijaniu i u¿ywaniu dowolnej sk³adni
 szablonów. Domy¶lny filtr (SimpleTags) zawiera: zmienne, pêtle
