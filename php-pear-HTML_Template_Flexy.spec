@@ -1,16 +1,16 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		HTML
 %define		_subclass	Template
+%define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}_Flexy
 Summary:	%{_pearname} - A Flexible Caching Template Engine Based on SimpleTemplate
 Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
-Version:	0.1
-Release:	3
+Version:	0.2
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-Patch0:		%{name}-cosmetic.patch
 URL:		http://pear.php.net/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
@@ -29,6 +29,8 @@ template in mozilla etc. Other filters include:
  - Php - to strip php code from template,
  - Email - For parsing email templates.
 
+This class has in PEAR status: %{_status}.
+
 %description -l pl
 Flexy Template to silnik szablonów do konwertera kodu PHP, bazowany na
 Simple Template i podobny do Smarty. Powinien byæ bardzo szybki, jest
@@ -42,17 +44,19 @@ Inne filtry to:
  - Php - wycinaj±cy kod php z szablonu,
  - Email - do przetwarzania szablonów e-mail.
 
+Ta klasa ma w PEAR status: %{_status}.
+
 %prep
 %setup -q -c
-cd %{_pearname}-%{version}
-%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Filter
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/{Filter,Token}
 
 install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
+install %{_pearname}-%{version}/Flexy/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/
 install %{_pearname}-%{version}/Flexy/Filter/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Filter/
+install %{_pearname}-%{version}/Flexy/Token/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,5 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_pearname}-%{version}/Flexy/example.ini
 %dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy
 %dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Filter
+%dir %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token
 %{php_pear_dir}/%{_class}/%{_subclass}/*.php
+%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Filter/*.php
+%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token/*.php
