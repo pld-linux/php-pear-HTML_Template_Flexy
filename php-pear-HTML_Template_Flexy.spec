@@ -22,51 +22,63 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-HTML_Template_Flexy started it's life as a simplification of HTML_Template_Xipe,
-however in Version 0.2, It became one of the first template engine to use a real Lexer,
-rather than regex'es, making it possible to do things like ASP.net or Cold Fusion tags.
-However, it still has a very simple set of goals.
+HTML_Template_Flexy started it's life as a simplification of
+HTML_Template_Xipe, however in version 0.2, it became one of the first
+template engine to use a real Lexer, rather than regexes, making it
+possible to do things like ASP.net or Cold Fusion tags. However, it
+still has a very simple set of goals.
 - Very Simple API,
 	- easy to learn...
 	- prevents to much logic going in templates
-- Easy to write document'able code
-	- By using object vars for a template rather than 'assign', you
-	  can use PHPDoc comments to list what variable you use.
+- Easy to write documentable code
+	- By using object vars for a template rather than 'assign',
+	  you can use PHPDoc comments to list what variable you use.
 - Editable in WYSIWYG editors
-	- you can create full featured templates, that doesnt get broken every time you edit with
-	  Dreamweaver(tm) or Mozzila editor
+	- you can create full featured templates, that doesnt get
+	  broken every time you edit with Dreamweaver(tm) or Mozilla
+	  editor
 	- Uses namespaced attributes to add looping/conditionals
-- Extremely Fast,
-	- runtime is at least 4 time smaller than most other template engines (eg. Smarty)
-	- uses compiled templates, as a result it is many times faster on blocks and loops than
-	  than Regex templates (eg. IT/phplib)
+- Extremely Fast
+	- runtime is at least 4 time smaller than most other template
+	  engines (eg. Smarty)
+	- uses compiled templates, as a result it is many times faster
+	  on blocks and loops than than Regex templates (eg.
+	  IT/phplib)
 - Safer (for cross site scripting attacks)
-	- All variables default to be output as HTML escaped (overridden with the :h modifier)
+	- All variables default to be output as HTML escaped
+	  (overridden with the :h modifier)
 - Multilanguage support
-	- Parses strings out of template, so you can build translation tools
-	- Compiles language specific templates (so translation is only done once, not on every request)
-- Full dynamic element support (like ASP.NET), so you can pick elements to replace at runtime
+	- Parses strings out of template, so you can build translation
+	  tools
+	- Compiles language specific templates (so translation is only
+	  done once, not on every request)
+- Full dynamic element support (like ASP.NET), so you can pick
+	  elements to replace at runtime
 
 Features:
 - {variable} to echo $object->variable
 - {method()} to echo $object->method();
 - {foreach:var,key,value} to PHP foreach loops
-- tag attributes FLEXY:FOREACH, FLEXY:IF for looping and conditional HTML inclusion
+- tag attributes FLEXY:FOREACH, FLEXY:IF for looping and conditional
+  HTML inclusion
 - {if:variable} to PHP If statement
 - {if:method()} to PHP If statement
 - {else:} and {end:} to close or alternate If statements
 - FORM to HTML_Template_Flexy_Element's
-- replacement of INPUT, TEXTAREA and SELECT tags with HTML_Template_Flexy_Element code
-  use FLEXY:IGNORE (inherited) and FLEXY:IGNOREONLY (single) to prevent replacements
-- FLEXY:START/FLEXY:STARTCHILDREN tags to define where template starts/finishes
+- replacement of INPUT, TEXTAREA and SELECT tags with
+  HTML_Template_Flexy_Element code use FLEXY:IGNORE (inherited) and
+  FLEXY:IGNOREONLY (single) to prevent replacements
+- FLEXY:START/FLEXY:STARTCHILDREN tags to define where template
+  starts/finishes
 - support for urlencoded braces {} in HTML attributes.
 - documentation in the pear manual
 
-- examples at http://cvs.php.net/cvs.php/pear/HTML_Template_Flexy/tests/
+- examples at
+  http://cvs.php.net/cvs.php/pear/HTML_Template_Flexy/tests/
 
-The long term plan for Flexy is to be integrated as a backend for the Future
-Template Package (A BC wrapper will be made available - as I need to use it
-too!)
+The long term plan for Flexy is to be integrated as a backend for the
+Future Template Package (A BC wrapper will be made available - as I
+need to use it too!)
 
 In PEAR status of this package is: %{_status}.
 
