@@ -1,0 +1,29 @@
+--- ./Flexy/Filter/RtfSimpleTags.php.org	Fri Aug 23 08:34:34 2002
++++ ./Flexy/Filter/RtfSimpleTags.php	Sat Sep  7 08:24:43 2002
+@@ -33,7 +33,7 @@
+ 
+ require_once "HTML/Template/Flexy/Filter/SimpleTags.php";
+ 
+-class HTML_Template_Flexy_Filter_RtfSimpleTags extends HTML_Template_Flexy_Filter_simpletags 
++class HTML_Template_Flexy_Filter_RtfSimpleTags extends HTML_Template_Flexy_Filter_SimpleTags 
+ {
+     /*
+     *   @var    string   $start    the start tag for the template (escaped for regex)
+@@ -47,4 +47,4 @@
+     
+ }
+ 
+-?>
+\ No newline at end of file
++?>
+--- ./Flexy.php.org	Mon Sep  2 08:04:58 2002
++++ ./Flexy.php	Sat Sep  7 08:25:46 2002
+@@ -139,7 +139,7 @@
+         $a = &PEAR::getStaticProperty('Auth','singleton');
+         
+         /* expose o_ as $o */
+-        $o = new stdClass;
++        $o = new StdClass;
+         foreach (get_object_vars($t) as $k=>$v) {
+             if ($k{0} != "o") {
+                 continue;
