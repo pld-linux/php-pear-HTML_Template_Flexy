@@ -32,7 +32,7 @@ template in mozilla etc. Other filters include:
  - Php - to strip php code from template,
  - Email - For parsing email templates.
 
-This class has in PEAR status: %{_status}.
+In PEAR status of this package is: %{_status}.
 
 %description -l pl
 Flexy Template to silnik szablonów do konwertera kodu PHP, bazowany na
