@@ -34,7 +34,7 @@ still has a very simple set of goals.
 	- By using object vars for a template rather than 'assign',
 	  you can use PHPDoc comments to list what variable you use.
 - Editable in WYSIWYG editors
-	- you can create full featured templates, that doesnt get
+	- you can create full featured templates, that don't get
 	  broken every time you edit with Dreamweaver(tm) or Mozilla
 	  editor
 	- Uses namespaced attributes to add looping/conditionals
@@ -44,7 +44,7 @@ still has a very simple set of goals.
 	- uses compiled templates, as a result it is many times faster
 	  on blocks and loops than than Regex templates (eg.
 	  IT/phplib)
-- Safer (for cross site scripting attacks)
+- Safer (for cross-site scripting attacks)
 	- All variables default to be output as HTML escaped
 	  (overridden with the :h modifier)
 - Multilanguage support
@@ -57,22 +57,44 @@ still has a very simple set of goals.
 
 The long term plan for Flexy is to be integrated as a backend for the
 Future Template Package (A BC wrapper will be made available - as the
-author needs to use it too!)
+author needs to use it too).
 
 In PEAR status of this package is: %{_status}.
 
 %description -l pl
-Flexy Template to silnik szablonów do konwertera kodu PHP, oparty na
-Simple Template i podobny do Smarty. Powinien byæ bardzo szybki, jest
-³atwy w rozszerzaniu, rozwijaniu i u¿ywaniu dowolnej sk³adni
-szablonów. Domy¶lny filtr (SimpleTags) zawiera: zmienne, pêtle
-foreach, warunki, wywo³ania metod, w³±czanie kodu, obs³uguje znaczniki
-zakodowane w URL-ach - wiêc mo¿e modyfikowaæ szablony w Mozilli itp.
-Inne filtry to:
-- RtfSimpletags - do tworzenia dokumentów RTF dla Worda,
-- BodyOnly - wycinaj±cy nag³ówek i stopkê z szablonu,
-- Php - wycinaj±cy kod PHP z szablonu,
-- Email - do przetwarzania szablonów e-mail.
+HTML_Template_Flexy pocz±tkowo by³ uproszczeniem HTML_Template_Xipe,
+jednak od wersji 0.2 sta³ siê jednym z pierwszych silników szablonów
+u¿ywaj±cych prawdziwego analizatora leksykalnego zamiast wyra¿eñ
+regularnych, co umo¿liwia robienie rzeczy w stylu ASP.net czy
+znaczników Cold Fusion. Jednak nadal ma bardzo prosty zbiór
+zastosowañ. Cechy silnika:
+- bardzo proste API - ³atwe do nauczenia, zapobiega umieszczaniu zbyt
+  du¿ej ilo¶ci logiki w szablonach
+- ³atwe pisanie dokumentowalnego kodu - poprzez u¿ycie zmiennych
+  obiektowych dla szablonu zamiast przypisywania mo¿na u¿ywaæ
+  komentarzy phpDoc do wypisywania u¿ywanych zmiennych
+- edytowalny w edytorach WYSIWYG - mo¿na tworzyæ w pe³ni funkcjonalne
+  szablony, które nie psuj± siê po ka¿dym u¿yciu Dreamweavera(tm) czy
+  edytora Mozilli; przy dodawaniu pêtli i warunków u¿ywane s± atrybuty
+  z przestrzeniami nazw
+- ekstremalnie szybki - kod uruchomieniowy jest przynajmniej 4 razy
+  mniejszy ni¿ wiêkszo¶æ innych silników szablonów (np. Smarty); u¿ywa
+  skompilowanych szablonów, dziêki czemu jest wiele razy szybszy na
+  blokach i pêtlach ni¿ szablony oparte na wyra¿eniach regularnych
+  (np. IT/phplib)
+- bezpieczniejszy (pod k±tem ataków cross-site scripting) - wszystkie
+  zmienne domy¶lnie s± wypisywane z u¿yciem sekwencji kontrolnych HTML
+  (mo¿na to zmieniæ modyfikatorem :h)
+- wspiera wielojêzyczno¶æ - przetwarza ³añcuchy z szablonu, co pozwala
+  na zbudowanie narzêdzi do t³umaczenia; kompiluje specyficzne dla
+  jêzyka szablony, dziêki czemu t³umaczenie jest robione tylko raz, a
+  nie przy ka¿dym ¿±daniu
+- w pe³ni obs³uguje dynamiczne elementy (jak ASP.NET), dziêki czemu
+  mo¿na pobieraæ elementy do zast±pienia w czasie dzia³ania.
+
+D³ugoterminowym planem rozwoju Flexy jest zintegrowanie jako backend
+dla Future Template Package (dostêpny bêdzie wrapper BC, jako ¿e autor
+te¿ musi tego u¿ywaæ).
 
 Ta klasa ma w PEAR status: %{_status}.
 
