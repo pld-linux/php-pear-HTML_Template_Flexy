@@ -3,15 +3,16 @@
 %define		_subclass	Template
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}_Flexy
+
 Summary:	%{_pearname} - A Flexible Caching Template Engine Based on SimpleTemplate
 Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
-Version:	0.5
-Release:	2
+Version:	0.6
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	418c16ab342d39457607c9c0ecbd348b
+# Source0-md5:	822ae9b5276f4a83a5d4998528f0e3cb
 Patch0:		%{name}-case_fix.patch
 URL:		http://pear.php.net/package/HTML_Template_Flexy/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
