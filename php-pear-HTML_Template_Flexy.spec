@@ -8,7 +8,7 @@ Summary:	%{_pearname} - a flexible caching template engine based on SimpleTempla
 Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	1.2.2
-Release:	1
+Release:	1.1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -16,10 +16,13 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 Patch0:		%{name}-case_fix.patch
 Patch1:		%{name}-path_fix.patch
 URL:		http://pear.php.net/package/HTML_Template_Flexy/
-BuildRequires:	rpm-php-pearprov >= 4.0.2-98
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# exclude optional dependencies
+%define		_noautoreq	'pear(HTML/Javascript.*)' 'pear(File/Gettext.*)' 'pear(Translation2.*)'
 
 %description
 HTML_Template_Flexy started its life as a simplification of
@@ -98,31 +101,47 @@ te¿ musi tego u¿ywaæ).
 
 Ta klasa ma w PEAR status: %{_status}.
 
+%package tests
+Summary:	Tests for PEAR::%{_pearname}
+Summary(pl):	Testy dla PEAR::%{_pearname}
+Group:		Development
+Requires:	%{name} = %{version}-%{release}
+
+%description tests
+Tests for PEAR::%{_pearname}.
+
+%description tests -l pl
+Testy dla PEAR::%{_pearname}.
+
 %prep
-%setup -q -c
-cd %{_pearname}-%{version}
+%pear_package_setup
+install -d docs/%{_pearname}
+mv ./%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/example.ini docs/%{_pearname}
+cd ./%{php_pear_dir}/%{_class}/%{_subclass}
 %patch0 -p1
 %patch1 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/{Compiler/{Flexy,Standard,Regex},Element,Plugin,Token}
-	
-install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
-install %{_pearname}-%{version}/Flexy/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy
-install %{_pearname}-%{version}/Flexy/Compiler/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler
-install %{_pearname}-%{version}/Flexy/Compiler/Flexy/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Flexy
-install %{_pearname}-%{version}/Flexy/Compiler/Standard/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Standard
-install %{_pearname}-%{version}/Flexy/Compiler/Regex/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Compiler/Regex
-install %{_pearname}-%{version}/Flexy/Element/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Element
-install %{_pearname}-%{version}/Flexy/Plugin/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Plugin
-install %{_pearname}-%{version}/Flexy/Token/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/Token
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+if [ -f %{_docdir}/%{name}-%{version}/optional-packages.txt ]; then
+	cat %{_docdir}/%{name}-%{version}/optional-packages.txt
+fi
+
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}/{Flexy/example.ini,tests}
+%doc install.log optional-packages.txt
+%doc docs/%{_pearname}/example.ini
+%{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy.php
+
+%files tests
+%defattr(644,root,root,755)
+%{php_pear_dir}/tests/*
