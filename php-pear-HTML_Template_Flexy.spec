@@ -19,6 +19,7 @@ Patch1:		%{name}-path_fix.patch
 URL:		http://pear.php.net/package/HTML_Template_Flexy/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 3:4.3
 Requires:	php-pear
 BuildArch:	noarch
