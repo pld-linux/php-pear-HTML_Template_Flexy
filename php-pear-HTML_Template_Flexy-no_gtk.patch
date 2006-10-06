@@ -1,0 +1,11 @@
+--- ./usr/share/pear/HTML/Template/Flexy/Test.php.org	2006-10-06 14:33:41.000000000 +0200
++++ ./usr/share/pear/HTML/Template/Flexy/Test.php	2006-10-06 14:35:22.000000000 +0200
+@@ -25,7 +25,7 @@
+ //
+ 
+ //ini_set('include_path', ini_get('include_path').realpath(dirname(__FILE__) . '/../../..'));
+-require_once 'Gtk/VarDump.php';
++//require_once 'Gtk/VarDump.php';
+ require_once 'Console/Getopt.php';
+ require_once 'HTML/Template/Flexy.php';
+ require_once 'HTML/Template/Flexy/Compiler.php';
