@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}_Flexy
 
 Summary:	%{_pearname} - a flexible caching template engine based on SimpleTemplate
-Summary(pl):	%{_pearname} - elastyczny buforuj±cy silnik szablonów oparty na SimpleTemplate
+Summary(pl.UTF-8):   %{_pearname} - elastyczny buforujÄ…cy silnik szablonÃ³w oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	1.2.5
 Release:	1
@@ -69,46 +69,46 @@ author needs to use it too).
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-HTML_Template_Flexy pocz±tkowo by³ uproszczeniem HTML_Template_Xipe,
-jednak od wersji 0.2 sta³ siê jednym z pierwszych silników szablonów
-u¿ywaj±cych prawdziwego analizatora leksykalnego zamiast wyra¿eñ
-regularnych, co umo¿liwia robienie rzeczy w stylu ASP.net czy
-znaczników Cold Fusion. Jednak nadal ma bardzo prosty zbiór
-zastosowañ. Cechy silnika:
-- bardzo proste API - ³atwe do nauczenia, zapobiega umieszczaniu zbyt
-  du¿ej ilo¶ci logiki w szablonach
-- ³atwe pisanie dokumentowalnego kodu - poprzez u¿ycie zmiennych
-  obiektowych dla szablonu zamiast przypisywania mo¿na u¿ywaæ
-  komentarzy phpDoc do wypisywania u¿ywanych zmiennych
-- edytowalny w edytorach WYSIWYG - mo¿na tworzyæ w pe³ni funkcjonalne
-  szablony, które nie psuj± siê po ka¿dym u¿yciu Dreamweavera(tm) czy
-  edytora Mozilli; przy dodawaniu pêtli i warunków u¿ywane s± atrybuty
+%description -l pl.UTF-8
+HTML_Template_Flexy poczÄ…tkowo byÅ‚ uproszczeniem HTML_Template_Xipe,
+jednak od wersji 0.2 staÅ‚ siÄ™ jednym z pierwszych silnikÃ³w szablonÃ³w
+uÅ¼ywajÄ…cych prawdziwego analizatora leksykalnego zamiast wyraÅ¼eÅ„
+regularnych, co umoÅ¼liwia robienie rzeczy w stylu ASP.net czy
+znacznikÃ³w Cold Fusion. Jednak nadal ma bardzo prosty zbiÃ³r
+zastosowaÅ„. Cechy silnika:
+- bardzo proste API - Å‚atwe do nauczenia, zapobiega umieszczaniu zbyt
+  duÅ¼ej iloÅ›ci logiki w szablonach
+- Å‚atwe pisanie dokumentowalnego kodu - poprzez uÅ¼ycie zmiennych
+  obiektowych dla szablonu zamiast przypisywania moÅ¼na uÅ¼ywaÄ‡
+  komentarzy phpDoc do wypisywania uÅ¼ywanych zmiennych
+- edytowalny w edytorach WYSIWYG - moÅ¼na tworzyÄ‡ w peÅ‚ni funkcjonalne
+  szablony, ktÃ³re nie psujÄ… siÄ™ po kaÅ¼dym uÅ¼yciu Dreamweavera(tm) czy
+  edytora Mozilli; przy dodawaniu pÄ™tli i warunkÃ³w uÅ¼ywane sÄ… atrybuty
   z przestrzeniami nazw
 - ekstremalnie szybki - kod uruchomieniowy jest przynajmniej 4 razy
-  mniejszy ni¿ wiêkszo¶æ innych silników szablonów (np. Smarty); u¿ywa
-  skompilowanych szablonów, dziêki czemu jest wiele razy szybszy na
-  blokach i pêtlach ni¿ szablony oparte na wyra¿eniach regularnych
+  mniejszy niÅ¼ wiÄ™kszoÅ›Ä‡ innych silnikÃ³w szablonÃ³w (np. Smarty); uÅ¼ywa
+  skompilowanych szablonÃ³w, dziÄ™ki czemu jest wiele razy szybszy na
+  blokach i pÄ™tlach niÅ¼ szablony oparte na wyraÅ¼eniach regularnych
   (np. IT/phplib)
-- bezpieczniejszy (pod k±tem ataków cross-site scripting) - wszystkie
-  zmienne domy¶lnie s± wypisywane z u¿yciem sekwencji kontrolnych HTML
-  (mo¿na to zmieniæ modyfikatorem :h)
-- wspiera wielojêzyczno¶æ - przetwarza ³añcuchy z szablonu, co pozwala
-  na zbudowanie narzêdzi do t³umaczenia; kompiluje specyficzne dla
-  jêzyka szablony, dziêki czemu t³umaczenie jest robione tylko raz, a
-  nie przy ka¿dym ¿±daniu
-- w pe³ni obs³uguje dynamiczne elementy (jak ASP.NET), dziêki czemu
-  mo¿na pobieraæ elementy do zast±pienia w czasie dzia³ania.
+- bezpieczniejszy (pod kÄ…tem atakÃ³w cross-site scripting) - wszystkie
+  zmienne domyÅ›lnie sÄ… wypisywane z uÅ¼yciem sekwencji kontrolnych HTML
+  (moÅ¼na to zmieniÄ‡ modyfikatorem :h)
+- wspiera wielojÄ™zycznoÅ›Ä‡ - przetwarza Å‚aÅ„cuchy z szablonu, co pozwala
+  na zbudowanie narzÄ™dzi do tÅ‚umaczenia; kompiluje specyficzne dla
+  jÄ™zyka szablony, dziÄ™ki czemu tÅ‚umaczenie jest robione tylko raz, a
+  nie przy kaÅ¼dym Å¼Ä…daniu
+- w peÅ‚ni obsÅ‚uguje dynamiczne elementy (jak ASP.NET), dziÄ™ki czemu
+  moÅ¼na pobieraÄ‡ elementy do zastÄ…pienia w czasie dziaÅ‚ania.
 
-D³ugoterminowym planem rozwoju Flexy jest zintegrowanie jako backend
-dla Future Template Package (dostêpny bêdzie wrapper BC, jako ¿e autor
-te¿ musi tego u¿ywaæ).
+DÅ‚ugoterminowym planem rozwoju Flexy jest zintegrowanie jako backend
+dla Future Template Package (dostÄ™pny bÄ™dzie wrapper BC, jako Å¼e autor
+teÅ¼ musi tego uÅ¼ywaÄ‡).
 
 Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 AutoReq:	no
@@ -117,7 +117,7 @@ AutoProv:	no
 %description tests
 Tests for PEAR::%{_pearname}.
 
-%description tests -l pl
+%description tests -l pl.UTF-8
 Testy dla PEAR::%{_pearname}.
 
 %prep
