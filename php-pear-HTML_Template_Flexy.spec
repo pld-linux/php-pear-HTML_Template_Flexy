@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}_Flexy
 
 Summary:	%{_pearname} - a flexible caching template engine based on SimpleTemplate
-Summary(pl.UTF-8):   %{_pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
+Summary(pl.UTF-8):	%{_pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	1.2.5
 Release:	1
@@ -108,7 +108,7 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 AutoReq:	no
