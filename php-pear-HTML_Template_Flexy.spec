@@ -8,7 +8,7 @@ Summary:	%{_pearname} - a flexible caching template engine based on SimpleTempla
 Summary(pl.UTF-8):	%{_pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
 Version:	1.3.4
-Release:	1
+Release:	2
 Epoch:		0
 License:	PHP 2.02
 Group:		Development/Languages/PHP
@@ -27,7 +27,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(HTML/Javascript.*)' 'pear(File/Gettext.*)' 'pear(Translation2.*)'
+%define		_noautoreq	'pear(HTML/Javascript.*)' 'pear(File/Gettext.*)' 'pear(Translation2.*)' 'pear(Services/JSON.php)'
 
 %description
 HTML_Template_Flexy started its life as a simplification of
