@@ -7,13 +7,13 @@
 Summary:	%{_pearname} - a flexible caching template engine based on SimpleTemplate
 Summary(pl.UTF-8):	%{_pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
-Version:	1.3.4
-Release:	2
+Version:	1.3.10
+Release:	1
 Epoch:		0
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	f5295fa17b711bb3114ad134ef3f65ef
+# Source0-md5:	5bbc01bcfabbdeeeb79aeffc448be06e
 Patch0:		%{name}-case_fix.patch
 Patch1:		%{name}-path_fix.patch
 Patch2:		%{name}-no_gtk.patch
@@ -36,32 +36,29 @@ template engine to use a real Lexer, rather than regexes, making it
 possible to do things like ASP.net or Cold Fusion tags. However, it
 still has a very simple set of goals.
 - Very Simple API,
-	- easy to learn...
-	- prevents to much logic going in templates
+ - easy to learn...
+ - prevents to much logic going in templates
 - Easy to write documentable code
-	- By using object vars for a template rather than 'assign',
-	  you can use PHPDoc comments to list what variable you use.
+ - By using object vars for a template rather than 'assign', you can
+   use PHPDoc comments to list what variable you use.
 - Editable in WYSIWYG editors
-	- you can create full featured templates, that don't get
-	  broken every time you edit with Dreamweaver(tm) or Mozilla
-	  editor
-	- Uses namespaced attributes to add looping/conditionals
+ - you can create full featured templates, that don't get broken every
+   time you edit with Dreamweaver(tm) or Mozilla editor
+ - Uses namespaced attributes to add looping/conditionals
 - Extremely Fast
-	- runtime is at least 4 time smaller than most other template
-	  engines (eg. Smarty)
-	- uses compiled templates, as a result it is many times faster
-	  on blocks and loops than than Regex templates (eg.
-	  IT/phplib)
+ - runtime is at least 4 time smaller than most other template engines
+   (eg. Smarty)
+ - uses compiled templates, as a result it is many times faster on
+   blocks and loops than than Regex templates (eg. IT/phplib)
 - Safer (for cross-site scripting attacks)
-	- All variables default to be output as HTML escaped
-	  (overridden with the :h modifier)
+ - All variables default to be output as HTML escaped (overridden with
+   the :h modifier)
 - Multilanguage support
-	- Parses strings out of template, so you can build translation
-	  tools
-	- Compiles language specific templates (so translation is only
-	  done once, not on every request)
+ - Parses strings out of template, so you can build translation tools
+ - Compiles language specific templates (so translation is only done
+   once, not on every request)
 - Full dynamic element support (like ASP.NET), so you can pick
-	  elements to replace at runtime
+  elements to replace at runtime
 
 The long term plan for Flexy is to be integrated as a backend for the
 Future Template Package (A BC wrapper will be made available - as the
@@ -79,17 +76,17 @@ zastosowań. Cechy silnika:
 - bardzo proste API - łatwe do nauczenia, zapobiega umieszczaniu zbyt
   dużej ilości logiki w szablonach
 - łatwe pisanie dokumentowalnego kodu - poprzez użycie zmiennych
-  obiektowych dla szablonu zamiast przypisywania można używać
-  komentarzy phpDoc do wypisywania używanych zmiennych
+  obiektowych dla szablonu zamiast przypisywania można używać komentarzy
+  phpDoc do wypisywania używanych zmiennych
 - edytowalny w edytorach WYSIWYG - można tworzyć w pełni funkcjonalne
   szablony, które nie psują się po każdym użyciu Dreamweavera(tm) czy
-  edytora Mozilli; przy dodawaniu pętli i warunków używane są atrybuty
-  z przestrzeniami nazw
+  edytora Mozilli; przy dodawaniu pętli i warunków używane są atrybuty z
+  przestrzeniami nazw
 - ekstremalnie szybki - kod uruchomieniowy jest przynajmniej 4 razy
   mniejszy niż większość innych silników szablonów (np. Smarty); używa
   skompilowanych szablonów, dzięki czemu jest wiele razy szybszy na
-  blokach i pętlach niż szablony oparte na wyrażeniach regularnych
-  (np. IT/phplib)
+  blokach i pętlach niż szablony oparte na wyrażeniach regularnych (np.
+  IT/phplib)
 - bezpieczniejszy (pod kątem ataków cross-site scripting) - wszystkie
   zmienne domyślnie są wypisywane z użyciem sekwencji kontrolnych HTML
   (można to zmienić modyfikatorem :h)
@@ -111,8 +108,8 @@ Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-AutoReq:	no
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
@@ -122,17 +119,20 @@ Testy dla PEAR::%{_pearname}.
 
 %prep
 %pear_package_setup
-install -d docs/%{_pearname}
-mv ./%{php_pear_dir}/%{_class}/%{_subclass}/Flexy/example.ini docs/%{_pearname}
 cd ./%{php_pear_dir}/%{_class}/%{_subclass}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p6
+cd -
+
+mv .%{php_pear_dir}/data/HTML_Template_Flexy/TODO .
+mv .%{php_pear_dir}/data/HTML_Template_Flexy/ChangeLog .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -145,10 +145,12 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc install.log optional-packages.txt
-%doc docs/%{_pearname}/example.ini
+%doc TODO ChangeLog
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy.php
+
+%{php_pear_dir}/data/%{_pearname}
 
 %files tests
 %defattr(644,root,root,755)
