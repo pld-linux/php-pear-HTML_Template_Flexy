@@ -1,17 +1,15 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		HTML
-%define		_subclass	Template
 %define		_status		stable
-%define		_pearname	%{_class}_%{_subclass}_Flexy
+%define		_pearname	HTML_Template_Flexy
 Summary:	%{_pearname} - a flexible caching template engine based on SimpleTemplate
 Summary(pl.UTF-8):	%{_pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{_pearname}
-Version:	1.3.10
-Release:	2
+Version:	1.3.11
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	5bbc01bcfabbdeeeb79aeffc448be06e
+# Source0-md5:	e3fce49566ffc95cede2dd8d7007bfcd
 Patch0:		%{name}-case_fix.patch
 Patch1:		%{name}-path_fix.patch
 Patch2:		%{name}-no_gtk.patch
@@ -29,7 +27,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(HTML/Javascript.*)' 'pear(File/Gettext.*)' 'pear(Translation2.*)' 'pear(Services/JSON.php)'
+%define		_noautoreq	pear(HTML/Javascript.*) pear(File/Gettext.*) pear(Translation2.*) pear(Services/JSON.php)
 
 %description
 HTML_Template_Flexy started its life as a simplification of
@@ -107,7 +105,7 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %pear_package_setup
-cd ./%{php_pear_dir}/%{_class}/%{_subclass}
+cd ./%{php_pear_dir}/HTML/Template
 %patch0 -p1
 %patch1 -p1
 %patch2 -p6
@@ -135,7 +133,7 @@ fi
 %doc install.log optional-packages.txt
 %doc TODO ChangeLog
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy
-%{php_pear_dir}/%{_class}/%{_subclass}/Flexy.php
+%{php_pear_dir}/HTML/Template/Flexy
+%{php_pear_dir}/HTML/Template/Flexy.php
 
 %{php_pear_dir}/data/%{_pearname}
