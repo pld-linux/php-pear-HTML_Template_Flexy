@@ -24,6 +24,7 @@ Requires:	php-pear
 Suggests:	php-pear-File_Gettext
 Suggests:	php-pear-HTML_Javascript
 Suggests:	php-pear-Translation2
+Obsoletes:	php-pear-HTML_Template_Flexy-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -104,20 +105,6 @@ też musi tego używać).
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
-Group:		Development/Languages/PHP
-Requires:	%{name} = %{version}-%{release}
-AutoProv:	no
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl.UTF-8
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
 cd ./%{php_pear_dir}/%{_class}/%{_subclass}
@@ -152,7 +139,3 @@ fi
 %{php_pear_dir}/%{_class}/%{_subclass}/Flexy.php
 
 %{php_pear_dir}/data/%{_pearname}
-
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/*
