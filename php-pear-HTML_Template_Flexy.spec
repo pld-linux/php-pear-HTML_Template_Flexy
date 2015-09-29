@@ -1,14 +1,14 @@
+%define		status		stable
+%define		pearname	HTML_Template_Flexy
 %include	/usr/lib/rpm/macros.php
-%define		_status		stable
-%define		_pearname	HTML_Template_Flexy
-Summary:	%{_pearname} - a flexible caching template engine based on SimpleTemplate
-Summary(pl.UTF-8):	%{_pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
-Name:		php-pear-%{_pearname}
+Summary:	%{pearname} - a flexible caching template engine based on SimpleTemplate
+Summary(pl.UTF-8):	%{pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
+Name:		php-pear-%{pearname}
 Version:	1.3.13
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
+Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
 # Source0-md5:	b2927f235ba75660dcc0f3a6257279d1
 Patch0:		%{name}-case_fix.patch
 Patch1:		%{name}-path_fix.patch
@@ -16,7 +16,7 @@ Patch2:		%{name}-no_gtk.patch
 URL:		http://pear.php.net/package/HTML_Template_Flexy/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.654
 Requires:	php(core) >= 4.3
 Requires:	php-pear
 Suggests:	php-pear-File_Gettext
@@ -27,7 +27,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	pear(HTML/Javascript.*) pear(File/Gettext.*) pear(Translation2.*) pear(Services/JSON.php)
+%define		_noautoreq_pear	HTML/Javascript.* File/Gettext.* Translation2.* Services/JSON.php
 
 %description
 HTML_Template_Flexy started its life as a simplification of
@@ -64,7 +64,7 @@ The long term plan for Flexy is to be integrated as a backend for the
 Future Template Package (A BC wrapper will be made available - as the
 author needs to use it too).
 
-In PEAR status of this package is: %{_status}.
+In PEAR status of this package is: %{status}.
 
 %description -l pl.UTF-8
 HTML_Template_Flexy początkowo był uproszczeniem HTML_Template_Xipe,
@@ -101,7 +101,7 @@ Długoterminowym planem rozwoju Flexy jest zintegrowanie jako backend
 dla Future Template Package (dostępny będzie wrapper BC, jako że autor
 też musi tego używać).
 
-Ta klasa ma w PEAR status: %{_status}.
+Ta klasa ma w PEAR status: %{status}.
 
 %prep
 %pear_package_setup
@@ -123,17 +123,10 @@ install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-if [ -f %{_docdir}/%{name}-%{version}/optional-packages.txt ]; then
-	cat %{_docdir}/%{name}-%{version}/optional-packages.txt
-fi
-
 %files
 %defattr(644,root,root,755)
-%doc install.log optional-packages.txt
-%doc TODO ChangeLog
+%doc TODO ChangeLog install.log
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/HTML/Template/Flexy
 %{php_pear_dir}/HTML/Template/Flexy.php
-
-%{php_pear_dir}/data/%{_pearname}
+%{php_pear_dir}/data/%{pearname}
