@@ -119,13 +119,15 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
 
+%post -p <lua>
+%pear_package_print_optionalpackages
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc TODO ChangeLog install.log
+%doc TODO ChangeLog install.log optional-packages.txt
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/HTML/Template/Flexy
 %{php_pear_dir}/HTML/Template/Flexy.php
