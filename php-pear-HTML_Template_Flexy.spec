@@ -1,6 +1,5 @@
 %define		status		stable
 %define		pearname	HTML_Template_Flexy
-%include	/usr/lib/rpm/macros.php
 Summary:	%{pearname} - a flexible caching template engine based on SimpleTemplate
 Summary(pl.UTF-8):	%{pearname} - elastyczny buforujący silnik szablonów oparty na SimpleTemplate
 Name:		php-pear-%{pearname}
