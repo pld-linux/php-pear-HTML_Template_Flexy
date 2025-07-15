@@ -105,9 +105,9 @@ Ta klasa ma w PEAR status: %{status}.
 %prep
 %pear_package_setup
 cd ./%{php_pear_dir}/HTML/Template
-%patch0 -p1
-%patch1 -p1
-%patch2 -p6
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p6
 cd -
 
 mv .%{php_pear_dir}/data/HTML_Template_Flexy/TODO .
